@@ -3,10 +3,15 @@ pragma solidity >=0.4.22 <0.8.0;
 contract Student{   
       
     uint public id=0; 
-     mapping(uint=>string) public studentnames;
-     function register( string memory _name)  public {
+    struct st{
+        string name;
+        string email;
+        string ph;
+    }
+     mapping(uint=>st) public students;
+     function register( string memory _name,string memory _email,string memory _ph)  public {
          id=id+1;
-        studentnames[id]=_name;        
+        students[id]=st(_name,_email,_ph)    ;   
      }   
 
   
